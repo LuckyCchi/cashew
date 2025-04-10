@@ -1,39 +1,71 @@
-import React from "react"; import { Card, CardContent } from "@/components/ui/card"; import { Button } from "@/components/ui/button"; import { Input } from "@/components/ui/input"; import { ShoppingCart, Leaf, Search } from "lucide-react"; import { motion } from "framer-motion";
-
-const processImages = [ { src: "/images/select.jpg", text: "选果：挑选饱满果实" }, { src: "/images/pick.jpg", text: "采摘：手工采摘成熟腰果" }, { src: "/images/dry.jpg", text: "晒干：自然阳光晾晒" }, { src: "/images/shell.jpg", text: "去壳：温和去壳保留香味" }, { src: "/images/roast.jpg", text: "翻炒：椒盐调味香脆可口" }, { src: "/images/pack.jpg", text: "包装：独立真空保鲜" }, { src: "/images/sell.jpg", text: "售卖：新鲜直达消费者" }, ];
-
-export default function LaowangCashew() { return ( <main className="min-h-screen bg-lime-50 p-4"> <header className="flex flex-col md:flex-row items-center justify-between p-4 bg-lime-100 rounded-2xl shadow gap-4"> <div className="flex items-center gap-2 text-lime-800 text-2xl font-bold"> <span className="text-xl">🌙</span> 老王腰果 </div> <div className="flex items-center gap-2 w-full md:w-auto"> <Input placeholder="Search..." className="max-w-xs" /> <Button className="bg-lime-600 hover:bg-lime-700"><Search size={16} /></Button> <Button className="bg-lime-600 hover:bg-lime-700"><ShoppingCart /></Button> </div> </header>
-
-<section className="text-center mt-6">
-    <h2 className="text-xl font-semibold text-lime-900">Nature 100% Cashew from Cambodia</h2>
-    <p className="text-sm text-lime-700 mt-1">纯天然 · 无添加 · 来自柬埔寨的阳光与土地</p>
-  </section>
-
-  <section className="grid md:grid-cols-3 gap-4 mt-6">
-    {processImages.map(({ src, text }, i) => (
-      <motion.div key={i} className="relative rounded-xl overflow-hidden shadow" whileHover={{ scale: 1.02 }}>
-        <img src={src} alt={text} className="w-full h-48 object-cover brightness-90" />
-        <div className="absolute bottom-0 bg-black/40 text-white text-sm p-2 w-full">{text}</div>
-      </motion.div>
-    ))}
-  </section>
-
-  <section className="mt-10">
-    <h3 className="text-lg font-semibold text-lime-900 mb-4">Product</h3>
-    <Card className="bg-white">
-      <CardContent className="p-4">
-        <img src="/images/product-180.jpg" alt="Cashew 180" className="w-full h-52 object-cover rounded-xl mb-3" />
-        <h4 className="font-medium text-lime-800">180型椒盐腰果 100g</h4>
-        <p className="text-sm text-gray-600 mb-2">饱满 · 香脆 · 美味</p>
-        <Button className="w-full bg-lime-600 hover:bg-lime-700">加入购物车</Button>
-      </CardContent>
-    </Card>
-  </section>
-
-  <footer className="text-center text-xs text-gray-500 mt-10 py-4">
-    © 2025 老王腰果 · Natural from Cambodia · Language: 中文 / English (coming soon)
+<!DOCTYPE html><html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>老王腰果</title>
+  <style>
+    body { font-family: sans-serif; margin: 0; background: #f0fdf4; }
+    header, footer { background: #bbf7d0; padding: 1rem; text-align: center; }
+    h1 { color: #166534; }
+    .section { padding: 1rem; }
+    .process img, .product img { width: 100%; max-width: 400px; border-radius: 1rem; }
+    .process div, .product { margin-bottom: 2rem; text-align: center; }
+    .search-bar { margin: 1rem 0; text-align: center; }
+    .cart { text-align: center; padding: 1rem; background: #dcfce7; }
+    button { padding: 0.5rem 1rem; border: none; background: #22c55e; color: white; border-radius: 5px; }
+    select { padding: 0.5rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🌙 老王腰果</h1>
+    <p>来自柬埔寨 · 100% 天然</p>
+  </header>  <div class="search-bar">
+    <input type="text" placeholder="搜索...">
+    <button>搜索</button>
+    <select>
+      <option>中文</option>
+      <option>English</option>
+    </select>
+  </div>  <section class="section product">
+    <h2>180型椒盐腰果</h2>
+    <img src="images/product-180.jpg" alt="腰果产品图">
+    <p>饱满 · 味香 · 美味 · 100g</p>
+    <button>加入购物车</button>
+  </section>  <section class="section process">
+    <h2>制作流程</h2>
+    <div>
+      <img src="images/select.jpg" alt="选果">
+      <p>选果：挑选饱满果实</p>
+    </div>
+    <div>
+      <img src="images/pick.jpg" alt="采摘">
+      <p>采摘：手工采摘成熟腰果</p>
+    </div>
+    <div>
+      <img src="images/dry.jpg" alt="晒干">
+      <p>晒干：自然阳光晒干</p>
+    </div>
+    <div>
+      <img src="images/shell.jpg" alt="去壳">
+      <p>去壳：温和去壳保留香味</p>
+    </div>
+    <div>
+      <img src="images/roast.jpg" alt="翻炒">
+      <p>翻炒：椒盐调味香脆可口</p>
+    </div>
+    <div>
+      <img src="images/pack.jpg" alt="包装">
+      <p>包装：独立真空保鲜</p>
+    </div>
+    <div>
+      <img src="images/sell.jpg" alt="售卖">
+      <p>售卖：新鲜直达消费者</p>
+    </div>
+  </section>  <div class="cart">
+    <p>购物车为空</p>
+  </div>  <footer>
+    <p>© 2025 老王腰果 · Natural from Cambodia</p>
   </footer>
-</main>
-
-); }
-add homepage
+</body>
+</html>
